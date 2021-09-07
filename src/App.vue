@@ -1,28 +1,36 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view></router-view>
+    <footerBar v-if="$route.meta.showFooter" ></footerBar>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import footerBar from "@/components/tabbar/footerBar";
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  name: "App",
+  data(){
+    return {
+      isActive: true
+    }
+  },
+  components:{
+    footerBar
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+@import "assets/css/reset.css";
+@import "assets/font/iconfont.css";
+  body {
+    width: 100%;
+    background-color: #ecf0f1;
+  }
+  #app{
+    width: 100%;
+    font-size: 14px;
+    font-family: -apple-system,Helvetica,sans-serif;
+    color: #666 ;
+  }
 </style>
